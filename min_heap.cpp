@@ -2,9 +2,9 @@
 #include "min_heap.h"
 
 template <typename T> 
-MinHeap<T>::MinHeap(int capacity)
+MinHeap<T>::MinHeap(int cap)
 {
-    heap = new T*[size];
+    heap = new T*[cap];
     this.cap = cap;
 }
 
@@ -16,20 +16,13 @@ MinHeap<T>::~MinHeap()
 }
 
 template <typename T>
-void MinHeap<T>::insert(T* item)
+bool MinHeap<T>::insert(T* item)
 {
-    heap[size++] = item;
-}
-
-template <typename T>
-void MinHeap<T>::pop()
-{
-    if(size > 0){
-        size --;
-        heap[0] = heap[size];
-        heap[size] = nullptr;
-        heapify(0);
+    if(size < cap){
+        heap[size++] = item;
+        return true;
     }
+    return false;
 }
 
 template <typename T>
@@ -77,7 +70,7 @@ void MinHeap<T>::heapify(int i)
 }
 
 template <typename T>
-void MinHeap<T>::heapify(T *node)
+void MinHeap<T>::pop(T *node)
 {
     if(node == nullptr && size > 0){
         size--;

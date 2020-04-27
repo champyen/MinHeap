@@ -11,11 +11,10 @@ public:
     MinHeap(int);
     ~MinHeap();
     T* getMin() { return heap[0]; }
-    void insert(T*);
-    void pop();
+    bool insert(T*);
+    void pop(T*);
     void makeHeap();
     void heapify(int);
-    void heapify(T*);
 
 private:
     T** heap = nullptr;
