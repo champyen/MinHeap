@@ -70,7 +70,7 @@ void MinHeap<T>::heapify(int i)
 }
 
 template <typename T>
-void MinHeap<T>::pop(T *node)
+int MinHeap<T>::pop(T *node)
 {
     if(node == nullptr && size > 0){
         size--;
@@ -79,4 +79,5 @@ void MinHeap<T>::pop(T *node)
     }
     heap[0] = node;
     heapify(0);
+    return size;
 }

@@ -12,7 +12,7 @@ public:
     ~MinHeap();
     T* getMin() { return heap[0]; }
     bool insert(T*);
-    void pop(T*);
+    int pop(T*);
     void makeHeap();
     void heapify(int);
 
